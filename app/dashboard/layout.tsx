@@ -11,10 +11,3 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-
-
-
-git --version
-git config --global user.name "DazeMind"
-git config --global user.email danny.darwin.dzf@gmail.com
-git config --global init.default branch main
