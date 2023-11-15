@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   { name: 'Clientes', href: '/dashboard/clientes', icon: UserIcon },
-  { name: 'Catalogo', icon: Bars3Icon},
+  { name: 'Catalogo',href: '/dashboard/categorias', icon: Bars3Icon},
   { name: 'Precios', href: '/dashboard/precios', icon: CurrencyDollarIcon },
   { name: 'Stock', href: '/dashboard/stock', icon: ArchiveBoxIcon },
   { name: 'Ordenes', href: '/dashboard/ordenes', icon: ShoppingCartIcon },

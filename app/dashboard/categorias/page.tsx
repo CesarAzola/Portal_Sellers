@@ -65,13 +65,13 @@ const Page = () => {
   return (
     
     <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-4">Clientes</h1>
+    <h1 className="text-2xl font-bold mb-4">Catalogo</h1>
      {/* filtro Clientes */}
      <div className="container mx-auto p-4">
       <div className="flex">
         <form onSubmit={handleSubmit} className="mr-auto">
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">Tipo de cliente:</label>
+            <label className="block text-sm font-medium text-gray-600">Tipo de prodcto:</label>
             <select
               className="mt-1 border rounded-md"
               value={filtro}

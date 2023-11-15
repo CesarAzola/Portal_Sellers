@@ -65,13 +65,13 @@ const Page = () => {
   return (
     
     <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-4">Clientes</h1>
+    <h1 className="text-2xl font-bold mb-4">Productos</h1>
      {/* filtro Clientes */}
      <div className="container mx-auto p-4">
       <div className="flex">
         <form onSubmit={handleSubmit} className="mr-auto">
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">Tipo de cliente:</label>
+            <label className="block text-sm font-medium text-gray-600">Tipo de prodcto:</label>
             <select
               className="mt-1 border rounded-md"
               value={filtro}
@@ -101,13 +101,13 @@ const Page = () => {
         <thead className=''>
           <tr className=" divide-x">
             <th className="py-2 px-4 border-b">ID</th>
-            <th className="py-2 px-4 border-b">Nombre</th>
+            <th className="py-2 px-4 border-b">Titulo</th>
             <th className="py-2 px-4 border-b">Tipo de Cliente</th>
             <th className="py-2 px-4 border-b">RUT</th>
             <th className="py-2 px-4 border-b">User 1</th>
-            <th className="py-2 px-4 border-b">User 2</th>
-            <th className="py-2 px-4 border-b">User 2</th>
-            <th className="py-2 px-4 border-b">User 2</th>
+            <th className="py-2 px-4 border-b">Id vendedor</th>
+            <th className="py-2 px-4 border-b">Descripción</th>
+            <th className="py-2 px-4 border-b">Imagen</th>
             <th className="py-2 px-4 border-b">Crud</th>
           </tr>
         </thead>
@@ -132,7 +132,8 @@ const Page = () => {
  - <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
 </svg>
-</td>            </tr>
+</td>
+            </tr>
           ))} 
         </tbody>
       </table>

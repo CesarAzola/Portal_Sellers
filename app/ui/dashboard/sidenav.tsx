@@ -1,20 +1,13 @@
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import AcmeLogo from '@/app/ui/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
-import Navbar from './navbar';
+import Navbartop from './navbartop';
 
 export default function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
+      
       {/* Encabezado */}
-      <div>
-
-
-
-
-
-        
-      </div>
       <header className="row mb-2 flex items-end justify-start rounded-md bg-blue-400 p-4">
         <div className="w-32 text-white md:w-40">
           <AcmeLogo />
@@ -34,6 +27,7 @@ export default function SideNav() {
           </button>
         </form>
       </div>
+     
     </div>
   );
 }
