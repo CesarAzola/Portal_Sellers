@@ -26,9 +26,23 @@ export default function Page() {
 
       headers: {'Content-Type': 'multipart/form-data',},
     });
+      //SET LOCAL STORAGE
         localStorage.setItem('token',response.data.access_token);
+        localStorage.setItem('rol',response.data.role);
+        localStorage.setItem('permisions',response.data.permisions);
+
+      //RESPUESTAS
+        console.log("--------------------RESPONSE.DATA-----------------");
         console.log(response.data);
+        console.log("----------------------  RESPONSE  -----------------------------");
+        console.log(response);
+        console.log("----------------------  TOKEN  ---------------------------");
         console.log(localStorage.getItem('token'));
+        console.log("----------------------  ROL  ---------------------------");
+        console.log(localStorage.getItem('rol'));
+        console.log("----------------------  PERMISIONS revisar ---------------------------");
+        console.log(localStorage.getItem('permisions'));
+        // 
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
     }
@@ -40,6 +54,14 @@ export default function Page() {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
       setToken(storedToken);
+    }
+    const storedRol = localStorage.getItem('rol');
+    if (storedRol) {
+      setToken(storedRol);
+    }
+    const storedPermisions = localStorage.getItem('permisions');
+    if (storedPermisions) {
+      setToken(storedPermisions);
     }
   }, []);
   
