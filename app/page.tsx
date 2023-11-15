@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState, useEffect, FormEvent } from 'react';
 import axios from 'axios';
 
+
 export default function Page() {
 
   const [email, setEmail] = useState('');
@@ -22,17 +23,12 @@ export default function Page() {
       formData.append('_token', token);
 
       const response = await axios.post('http://127.0.0.1:8000/api/login', formData, {
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
-});
 
-      if (response.data && response.data.token) {
-        setToken(response.data.token);
-        console.log("Accedió correctamente. Token:", response.data.token);
-      } else {
-        console.log("Accedió correctamente, pero no se recibió un token en la respuesta.");
-      }
+      headers: {'Content-Type': 'multipart/form-data',},
+    });
+        localStorage.setItem('token',response.data.access_token);
+        console.log(response.data);
+        console.log(localStorage.getItem('token'));
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
     }
@@ -40,14 +36,22 @@ export default function Page() {
   };
 
   useEffect(() => {
-    axios.post('http://127.0.0.1:8000/api/login')
-      .then((response) => {
-        setToken(response.data.csrf_token);
-      })
-      .catch((error) => {
-        console.error('Error al obtener el token CSRF:', error);
-      });
+    // Recuperar el token almacenado en localStorage al cargar la página
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+    }
   }, []);
+  
+  // useEffect(() => {
+  //   axios.post('http://127.0.0.1:8000/api/login')
+  //     .then((response) => {
+  //       setToken(response.data.csrf_token);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error al obtener el token CSRF:', error);
+  //     });
+  // }, []);
 
   return (
     <div>
@@ -62,6 +66,7 @@ export default function Page() {
             {/* Log in  */}
             
       <form className='flex justify-center pt-3' onSubmit={handleLogin}>
+      
         <div className='grid border-2 border-inherit px-5 py-5 rounded-md'>
           <label className="block text-sm font-medium text-gray-800">Login</label>
 
@@ -85,12 +90,6 @@ export default function Page() {
           </div>
         </div>
       </form>
-      {/* Mostrar el token si está disponible */}
-      {token && (
-        <div className="mt-4">
-          <strong>Token:</strong> {token}
-        </div>
-      )}
     </div>
     //...
   );
